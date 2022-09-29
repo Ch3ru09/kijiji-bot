@@ -6,8 +6,14 @@ async function main() {
 
     const page = await browser.newPage();
     await page.goto('https://www.kijiji.ca/t-login.html');
-    await page.waitForTimeout(5000); // wait for 5 seconds
+    await page.waitForTimeout(rn(3,5)); // wait for 5 seconds
+    await page.type("input#emailOrNickname", )
     // await browser.close();
+}
+
+function rn(min, max) {
+    // min(s) max(s)
+    return (min + Math.floor(Math.random()*(max-min+1)))*1000
 }
 
 main();
