@@ -8,22 +8,18 @@ async function main() {
 
     const page = await browser.newPage();
     await page.goto('https://www.kijiji.ca/t-login.html');
-<<<<<<< HEAD
-    await page.waitForTimeout(rn(3,5)); // wait for 5 seconds
-    const i = Math.floor(Math.random()*process.env.USERNAMES.split(" ").length)
+    await page.waitForTimeout(rn(3,5));
+    const i = Math.floor(Math.random()*(process.env.USERNAMES.split(" ").length));
     await page.type('input#emailOrNickname', process.env.USERNAMES.split(" ")[i]);
-    await page.waitForTimeout(rn(3,5));
+    await page.waitForTimeout(rn(1,2));
+    console.log(process.env.PASSWORDS.split(" "));
     await page.type('input#password', process.env.PASSWORDS.split(" ")[i]);
-    await page.waitForTimeout(rn(3,5));
+    await page.waitForTimeout(rn(1,2));
     await page.click('form#LoginForm >> button[type="submit"]');
-    // await browser.close();
-=======
-    await page.type('input[id="emailOrNickname"]', "runcongliang@gmail.com", {delay: 100});
-    await page.waitForTimeout(1000)
-    await page.type('input[id="password"]', "terry78925", {delay: 100});
-    await page.waitForTimeout(1000)
-    await page.click('form#LoginForm >> button[type="submit"]');
->>>>>>> 78f66ac (can enter and log in)
+
+    // await page.waitForTimeout(rn(3,5));
+    // await page.click('a[href="/p-select-category.html"]');
+
 }
 
 function rn(min, max) {
