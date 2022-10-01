@@ -8,6 +8,7 @@ async function main() {
 
     const page = await browser.newPage();
     await page.goto('https://www.kijiji.ca/t-login.html');
+<<<<<<< HEAD
     await page.waitForTimeout(rn(3,5));
     const i = Math.floor(Math.random()*(process.env.USERNAMES.split(" ").length));
     await page.type('input#emailOrNickname', process.env.USERNAMES.split(" ")[i]);
@@ -21,6 +22,18 @@ async function main() {
     await page.waitForTimeout(rn(3,5));
     await page.click('a[href="/m-my-ads/active/1"]');
 
+=======
+    await page.waitForTimeout(rn(3,5)); // wait for 5 seconds
+    const i = Math.floor(Math.random()*process.env.USERNAMES.split(" ").length)
+    // await page.type('input#emailOrNickname', process.env.USERNAMES.split(" ")[i]);
+    await page.type('input#emailOrNickname', 'danny78925@gmail.com');
+    await page.waitForTimeout(rn(3,5));
+    // await page.type('input#password', process.env.PASSWORDS.split(" ")[i]);
+    await page.type('input#password', 'Terry78925!');
+    await page.waitForTimeout(rn(3,5));
+    await page.click('form#LoginForm >> button[type="submit"]');
+    // await browser.close();
+>>>>>>> f2793d6 (merging)
 }
 
 function rn(min, max) {
