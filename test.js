@@ -12,13 +12,14 @@ async function main() {
     const i = Math.floor(Math.random()*(process.env.USERNAMES.split(" ").length));
     await page.type('input#emailOrNickname', process.env.USERNAMES.split(" ")[i]);
     await page.waitForTimeout(rn(1,2));
-    console.log(process.env.PASSWORDS.split(" "));
     await page.type('input#password', process.env.PASSWORDS.split(" ")[i]);
     await page.waitForTimeout(rn(1,2));
     await page.click('form#LoginForm >> button[type="submit"]');
 
-    // await page.waitForTimeout(rn(3,5));
-    // await page.click('a[href="/p-select-category.html"]');
+    await page.waitForTimeout(rn(3,5));
+    await page.click('button[aria-label="My Account"]');
+    await page.waitForTimeout(rn(3,5));
+    await page.click('a[href="/m-my-ads/active/1"]');
 
 }
 
